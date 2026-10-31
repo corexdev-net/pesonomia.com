@@ -1,0 +1,84 @@
+:root {
+  --fondo: #063523;
+  --fondo-2: #0F6B47;
+  --acento: #E2B04A;
+  --acento-2: #F6D27A;
+  --claro: #F5F7FA;
+  --texto: #DCE3EC;
+  --suave: #9AA8B8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+a { color: var(--acento); }
+a:hover { color: var(--claro); }
+
+/* Portada */
+.portada {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 16px;
+  background:
+    radial-gradient(ellipse at 50% 35%, color-mix(in srgb, var(--fondo-2) 85%, transparent) 0%, var(--fondo) 72%);
+}
+.portada img.logo { width: min(620px, 92vw); height: auto; }
+.portada p.gancho { max-width: 660px; font-size: clamp(18px, 2.4vw, 22px); color: var(--claro); margin: 28px auto 32px; }
+.botones { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.boton {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--acento);
+  color: var(--fondo);
+}
+.boton:hover { background: var(--claro); color: var(--fondo); }
+.boton.secundario { background: transparent; color: var(--claro); border: 2px solid color-mix(in srgb, var(--acento) 60%, transparent); }
+.boton.secundario:hover { border-color: var(--claro); }
+.temas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+  margin: 56px auto 0;
+  text-align: left;
+}
+.tema { background: color-mix(in srgb, var(--fondo-2) 55%, transparent); border: 1px solid color-mix(in srgb, var(--acento) 25%, transparent); border-radius: 16px; padding: 18px 20px; }
+.tema b { display: block; color: var(--acento); margin-bottom: 4px; }
+
+/* Páginas legales */
+main.legal { max-width: 780px; margin: 0 auto; padding: 32px 16px 56px; }
+main.legal header { padding: 8px 0 24px; border-bottom: 1px solid color-mix(in srgb, var(--acento) 25%, transparent); }
+main.legal header img { width: 300px; max-width: 80vw; height: auto; }
+main.legal h1 { color: var(--claro); font-size: 34px; line-height: 1.2; margin: 32px 0 4px; }
+main.legal h2 { color: var(--acento); font-size: 21px; margin-top: 34px; }
+.fecha { color: var(--suave); margin-top: 0; }
+
+footer { text-align: center; color: var(--suave); font-size: 15px; padding: 28px 16px; border-top: 1px solid color-mix(in srgb, var(--acento) 18%, transparent); }
+footer a { color: var(--texto); }
+
+/* Apariencia clara */
+body.claro { --claro: #0F172A; --texto: #273244; --suave: #5B6878; background: #F6F7F9; }
+body.claro .portada { background: radial-gradient(ellipse at 50% 35%, color-mix(in srgb, var(--acento) 14%, #ffffff) 0%, #F6F7F9 70%); }
+body.claro .boton { background: var(--fondo); color: #fff; }
+body.claro .boton:hover { background: var(--acento); color: var(--fondo); }
+body.claro .boton.secundario { color: var(--fondo); border-color: var(--fondo); background: transparent; }
+body.claro .tema { background: #ffffff; border-color: #E2E6EC; }
+body.claro .tema b { color: var(--fondo); }
+body.claro a { color: var(--fondo); }
+body.claro main.legal h2 { color: var(--fondo); }
+/* Portada con el banner del canal de fondo */
+body.con-banner .portada { background: linear-gradient(color-mix(in srgb, var(--fondo) 62%, transparent), color-mix(in srgb, var(--fondo) 88%, transparent) 70%, var(--fondo)), url("compartir.jpg") center / cover no-repeat; }
+body.claro.con-banner .portada { background: linear-gradient(rgba(246, 247, 249, .62), rgba(246, 247, 249, .9) 70%, #F6F7F9), url("compartir.jpg") center / cover no-repeat; }
